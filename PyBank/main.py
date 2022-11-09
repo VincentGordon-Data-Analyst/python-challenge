@@ -19,15 +19,13 @@ with open(csvpath, newline='') as csvfile:
     for row in dataset:
         date.append(row[0])
         months.append(row[0][0:3]) 
-        total_months = len(months)
-        
+        total_months = len(months)        
     print(f'Total Months: {total_months}')
     
     # Find the net total of "Profit/Losses" over entire period
     net_amount = 0    
     for row in dataset:
-        net_amount += int(row[1])
-        
+        net_amount += int(row[1])        
     print(f'Total: ${net_amount}')
 
     # Find changes in "Profit/Losses" over time frame    
@@ -44,8 +42,7 @@ with open(csvpath, newline='') as csvfile:
     # Average of "Profit/Loss" changes
     change_total = sum(change_list)
     change_length = len(change_list)
-    average_change = round((change_total / change_length), 2)
-    
+    average_change = round((change_total / change_length), 2)    
     print(f'Average Change: ${average_change}')
    
     
@@ -72,9 +69,3 @@ with open(csvpath, newline='') as csvfile:
         if int(profit_loss[i]) - int(profit_loss[i - 1]) == min_value:
            great_decrease = date[i] 
            print(f"Greatest Decrease in Profits: {great_decrease} (${min_value})")
-
-    
-    
-    
-            
-    
