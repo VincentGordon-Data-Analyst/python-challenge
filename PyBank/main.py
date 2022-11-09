@@ -13,6 +13,8 @@ with open(csvpath, newline='') as csvfile:
     # Contains the data for analysis
     dataset = [row for row in csvreader]
     
+    print('Financial Analysis')
+    print('-----------------------------')
     # Find the total number of months in dataset
     date = []
     months = []
