@@ -1,20 +1,19 @@
 import os 
 import csv
 
-csvpath = os.path.join('Resources', 'budget_data.csv')
+csvpath = os.path.join('..','PyBank','Resources', 'budget_data.csv')
 
-with open(csvpath, newline='') as csvfile:
-    
-    csvreader = csv.reader(csvfile, delimiter=',')    
-    
+with open(csvpath, newline='') as csvfile: 
+    csvreader = csv.reader(csvfile, delimiter=',')   
     # Skip first row as it contains just the headings 
     header = next(csvreader)
-    
+
     # Contains the data for analysis
     dataset = [row for row in csvreader]
     
     print('Financial Analysis')
     print('-----------------------------')
+    
     # Find the total number of months in dataset
     date = []
     months = []
@@ -46,7 +45,7 @@ with open(csvpath, newline='') as csvfile:
     change_length = len(change_list)
     average_change = round((change_total / change_length), 2)    
     print(f'Average Change: ${average_change}')
-   
+
     
     # Find the greatest increase in profits
     max_value = change_list[0]
@@ -65,9 +64,13 @@ with open(csvpath, newline='') as csvfile:
         if int(profit_loss[i]) - int(profit_loss[i - 1]) == max_value:
             great_increase = date[i]
             print(f"Greatest Increase in Profits: {great_increase} (${max_value})")
-     
+    
     # Find the month that caused the greatest decrease in profits 
     for i in range(len(profit_loss)):     
         if int(profit_loss[i]) - int(profit_loss[i - 1]) == min_value:
-           great_decrease = date[i] 
-           print(f"Greatest Decrease in Profits: {great_decrease} (${min_value})")
+            great_decrease = date[i] 
+            print(f"Greatest Decrease in Profits: {great_decrease} (${min_value})")
+        
+     
+    
+    
