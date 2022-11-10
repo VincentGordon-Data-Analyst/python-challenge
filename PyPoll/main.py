@@ -1,7 +1,7 @@
 import os
 import csv
 
-csvpath = os.path.join('..','PyPoll', 'Resources', 'election_data.csv')
+csvpath = os.path.join('PyPoll', 'Resources', 'election_data.csv')
 
 with open(csvpath, newline='') as csvfile: 
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -34,16 +34,12 @@ with open(csvpath, newline='') as csvfile:
     each_name = []
     for i in name_list:
         if i not in each_name:
-            each_name.append(i)
+            each_name.append(i)    
     
     # Find total votes for each candidate
-    each_vote_count = 0
-    first_name = name_list[0]
-    candidate_vote_count = []
+    vote_per_candidate = []    
+    for name in each_name:
+        vote_per_candidate.append(name_list.count(name))
+    
 
-    for i in range(1,len(name_list)):
-        if name_list[i] != name_list[i - 1]:
-            each_vote_count += int(row[0])
-            candidate_vote_count.append(each_vote_count)
-    print(candidate_vote_count)
     
