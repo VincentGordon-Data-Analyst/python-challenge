@@ -41,5 +41,32 @@ with open(csvpath, newline='') as csvfile:
     for name in each_name:
         vote_per_candidate.append(name_list.count(name))
     
+    # The percentage of votes each candidate won
+    percentage = []
+    for i in range(len(vote_per_candidate)):
+        each_can_percent = (vote_per_candidate[i] / total_vote) * 100
+        percentage.append(round(each_can_percent,3))
+        
 
+    # Print candidate name, percentage and vote count
+    for i in range(len(each_name)):
+            print(f"{each_name[i]}: {percentage[i]}% ({vote_per_candidate[i]})")
+            
+            
+    # Print the winner of the election based on high percentage  
+    for i in range(len(percentage)):
+        
+        # Find highest percentage
+        max_percent = percentage[0]
+        for percent in percentage:
+            if percent > max_percent:
+                max_percent = percent
+                
+        # Print winner's name if max_percent matches a value in percentage list
+        if max_percent == percentage[i]:
+            print(f"Winner: {each_name[i]}")
+    
+
+    
+     
     
