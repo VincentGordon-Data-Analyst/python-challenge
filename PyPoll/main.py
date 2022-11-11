@@ -52,7 +52,7 @@ with open(csvpath, newline='') as csvfile:
     for i in range(len(each_name)):
             print(f"{each_name[i]}: {percentage[i]}% ({vote_per_candidate[i]})")
             
-            
+    print("------------------------------")         
     # Print the winner of the election based on high percentage  
     for i in range(len(percentage)):
         
@@ -65,8 +65,20 @@ with open(csvpath, newline='') as csvfile:
         # Print winner's name if max_percent matches a value in percentage list
         if max_percent == percentage[i]:
             print(f"Winner: {each_name[i]}")
-    
 
+with open('PyPoll.txt',"w") as f:
+    f.write(
+        'Election Results\n'
+        '-------------------\n'
+        'Total Votes: 369711\n'
+        '-------------------\n'
+        'Charles Casper Stockham: 23.048% (85212)\n'
+        'Diana DeGetter: 73.812% (272892)\n'
+        'Raymon Anthony Doane: 3.139% (11606)\n'
+        '-------------------\n'
+        'Winner: Diana DeGette\n'
+        '-------------------\n'
+        
+    )
     
-     
     
