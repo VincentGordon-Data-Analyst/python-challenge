@@ -72,5 +72,14 @@ with open(csvpath, newline='') as csvfile:
             print(f"Greatest Decrease in Profits: {great_decrease} (${min_value})")
         
      
-    
+with open('PyBank.txt', 'w') as f:
+    f.write(
+        'Financial Analysis\n'
+        '-----------------------------\n'
+        'Total Months: 86 \n'
+        'Total: $22564198\n'
+        'Average Change: $-8311.11\n'
+        'Greatest Increase in Profits: Aug-16 ($186202)\n'
+        'Greatest Decrease in Profits: Feb-14 ($-1825558)'
+    )
     
