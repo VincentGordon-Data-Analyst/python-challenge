@@ -66,7 +66,8 @@ with open(csvpath, newline='') as csvfile:
         if max_percent == percentage[i]:
             print(f"Winner: {each_name[i]}")
 
-with open('PyPoll.txt',"w") as f:
+output = os.path.join('PyPoll', 'analysis', 'PyPoll.txt')
+with open(output,"w") as f:
     f.write(
         'Election Results\n'
         '-------------------\n'

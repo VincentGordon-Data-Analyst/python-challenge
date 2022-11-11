@@ -71,8 +71,8 @@ with open(csvpath, newline='') as csvfile:
             great_decrease = date[i] 
             print(f"Greatest Decrease in Profits: {great_decrease} (${min_value})")
         
-     
-with open('PyBank.txt', 'w') as f:
+output = os.path.join('PyBank','analysis', 'PyBank.txt')  
+with open(output,'w') as f:
     f.write(
         'Financial Analysis\n'
         '-----------------------------\n'
@@ -80,6 +80,6 @@ with open('PyBank.txt', 'w') as f:
         'Total: $22564198\n'
         'Average Change: $-8311.11\n'
         'Greatest Increase in Profits: Aug-16 ($186202)\n'
-        'Greatest Decrease in Profits: Feb-14 ($-1825558)'
+        'Greatest Decrease in Profits: Feb-14 ($-18255'
     )
     
