@@ -67,20 +67,32 @@ with open(csvpath, newline='') as csvfile:
             print(f"Winner: {each_name[i]}")
 
 output = os.path.join('PyPoll', 'analysis', 'PyPoll.txt')
-with open(output,"w") as f:
-    f.write(
-        'Election Results\n'
-        '-------------------\n'
-        'Total Votes: {total_votes}\n'
-        '-------------------\n'
-        '{each_name[i]}: {percentage[i]}% ({vote_per_candidate[i]})'
-        'Charles Casper Stockham: 23.048% (85212)\n'
-        'Diana DeGetter: 73.812% (272892)\n'
-        'Raymon Anthony Doane: 3.139% (11606)\n'
-        '-------------------\n'
-        'Winner: Diana DeGette\n'
-        '-------------------\n'
-        
+with open(output,"w") as f:     
+    f.write(            
+        f"""
+        Election Results
+        ---------------------
+        Total Votes: {total_vote}
+        --------------------- 
+        """
     )
-    
-    
+    for i in range(len(each_name)):  
+        f.write(
+        f"""
+        {each_name[i]}: {percentage[i]}% ({vote_per_candidate[i]})
+        """
+    )
+    for i in range(len(percentage)):        
+        # Find highest percentage
+        max_percent = percentage[0]
+        for percent in percentage:
+            if percent > max_percent:
+                max_percent = percent
+        if max_percent == percentage[i]:
+            f.write(
+        f"""
+        --------------------- 
+        Winner: {each_name[i]}
+        """
+        ) 
+        
