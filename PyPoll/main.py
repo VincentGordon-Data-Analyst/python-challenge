@@ -71,8 +71,9 @@ with open(output,"w") as f:
     f.write(
         'Election Results\n'
         '-------------------\n'
-        'Total Votes: 369711\n'
+        'Total Votes: {total_votes}\n'
         '-------------------\n'
+        '{each_name[i]}: {percentage[i]}% ({vote_per_candidate[i]})'
         'Charles Casper Stockham: 23.048% (85212)\n'
         'Diana DeGetter: 73.812% (272892)\n'
         'Raymon Anthony Doane: 3.139% (11606)\n'

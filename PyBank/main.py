@@ -74,12 +74,14 @@ with open(csvpath, newline='') as csvfile:
 output = os.path.join('PyBank','analysis', 'PyBank.txt')  
 with open(output,'w') as f:
     f.write(
-        'Financial Analysis\n'
-        '-----------------------------\n'
-        'Total Months: 86 \n'
-        'Total: $22564198\n'
-        'Average Change: $-8311.11\n'
-        'Greatest Increase in Profits: Aug-16 ($186202)\n'
-        'Greatest Decrease in Profits: Feb-14 ($-18255'
+        f"""
+        Financial Analysis
+        ------------------------
+        Total Months: {total_months}
+        Total: {net_amount}
+        Average Change: {average_change}
+        Greatest Increase in Profits: {great_increase} (${max_value})
+        Greatest Decrease in Profits: {great_decrease} (${min_value})
+        """
     )
     
